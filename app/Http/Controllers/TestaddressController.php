@@ -41,9 +41,9 @@ class TestaddressController extends Controller
       public function store(Request $request)
       {
           request()->validate([
-              'name' => 'required',
-              'email' => 'required',
-              'phone' => 'required',
+            'home_address' => 'required',
+            'office_address' => 'required',
+
           ]);
 
           testaddress::create($request->all());

@@ -22,13 +22,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                {{ $testuser->name }}
+                {{ $testuser->email }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Phone:</strong>
-                {{ $testuser->detail }}
+                {{ $testuser->phone }}
             </div>
         </div>
     </div>

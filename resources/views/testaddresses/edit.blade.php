@@ -1,6 +1,5 @@
 @extends('testaddresses.layout')
 
-
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -13,8 +12,7 @@
         </div>
     </div>
 
-
-    @if (count($errors) > 0)
+    @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -25,10 +23,27 @@
         </div>
     @endif
 
+    <form action="{{ route('testaddresses.update',$testaddress->id) }}" method="POST">
+        @csrf
+        @method('PUT')
 
-    {!! Form::model($testaddress, ['method' => 'PATCH','route' => ['testaddresses.update', $testaddress->id]]) !!}
-        @include('testaddresses.form')
-    {!! Form::close() !!}
+         <div class="row">
+           <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="form-group">
+                   <strong>Home Address:</strong>
+                   <input type="text" name="name" class="form-control" placeholder="Home Address">
+               </div>
+           </div>
+           <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="form-group">
+                   <strong>Office Address:</strong>
+                   <textarea class="form-control" style="height:150px" name="Office Address" placeholder="Office Address"></textarea>
+               </div>
+           </div>            
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
 
-
+    </form>
 @endsection
